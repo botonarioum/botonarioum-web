@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{#{% block title %}Hello {{ controller_name }}!{% endblock %}#}
+
+{% block body %}
+{#<style>#}
+    {#.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }#}
+    {#.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }#}
+{#</style>#}
+
+
+
+{#<div class="example-wrapper">#}
+    {#<h1>Hello {{ controller_name }}! ✅</h1>#}
+
+    {#This friendly message is coming from:#}
+    {#<ul>#}
+        {#<li>Your controller at <code><a href="{{ 'src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>#}
+        {#<li>Your template at <code><a href="{{ 'templates/index/list.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>#}
+    {#</ul>#}
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Каталог</a></li>
+            <li class="breadcrumb-item"><a href="/">Telegram</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ entity.title }}</li>
+        </ol>
+    </nav>
+    <hr>
+
+
+    <div class="container row">
+        <div class="container row">
+        <div class="col-md-2"><img src="{{ entity.logo }}" height="100" width="100" class="rounded"></div>
+        <div class="col-md-10">
+            <div class="container row">
+                <div class="col-md-12">{{ entity.title }}</div>
+                <div class="col-md-12">{{ entity.about }}</div>
+                <div class="col-md-12"><hr></div>
+                {#<div class="col-md-12">Язык интерфейса: {{ entity.language|capitalize }}</div>#}
+                {#<div class="col-md-12">Тип: {{ entity.type }}</div>#}
+                {#<div class="col-md-12">Доступен для подключения: +</div>#}
+                {#<div class="col-md-12">Автор: @igorkpl</div>#}
+                <div class="col-md-12">
+
+                    <table class="table table-borderless">
+                        <tbody>
+                        <tr>
+                            {#<th scope="row">1</th>#}
+                            <td>Язык интерфейса</td>
+                            <td>{{ entity.language|capitalize }}</td>
+                            {#<td>@mdo</td>#}
+                        </tr>
+                        <tr>
+                            {#<th scope="row">2</th>#}
+                            <td>Тип</td>
+                            <td>{{ entity.type|capitalize }}</td>
+                            {#<td>@fat</td>#}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container row">
+            {#<div class="col-md-3 text-left"><i class="fab fa-telegram"></i></div>#}
+            {#<div class="col-md-3 text-left"><span class="badge badge-secondary">{{ entity.language|upper }}</span></div>#}
+            {#<div class="col-md-3 text-center"><span class="badge badge-secondary">{{ entity.type }}</span></div>#}
+            <div class="col-md-12 text-right">
+                <button type="button" class="btn btn-outline-success" onclick="window.open('{{ entity.link }}')"><i class="fas fa-download"></i> Установить</button>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div id="disqus_thread"></div>
+    <script>
+
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://botonarioum-1.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{#</div>#}
+{% endblock %}

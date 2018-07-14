@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{#{% block title %}Hello {{ controller_name }}!{% endblock %}#}
+
+{% block body %}
+{#<style>#}
+    {#.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }#}
+    {#.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }#}
+{#</style>#}
+
+{#<div class="example-wrapper">#}
+    {#<h1>Hello {{ controller_name }}! ✅</h1>#}
+
+    {#This friendly message is coming from:#}
+    {#<ul>#}
+        {#<li>Your controller at <code><a href="{{ 'src/Controller/IndexController.php'|file_link(0) }}">src/Controller/IndexController.php</a></code></li>#}
+        {#<li>Your template at <code><a href="{{ 'templates/index/list.html.twig'|file_link(0) }}">templates/index/index.html.twig</a></code></li>#}
+    {#</ul>#}
+    {#<hr>#}
+    <div class="container row">
+    {% for entity in entities %}
+
+        {#{{ path('detail', {'id': entity.id}) }}#}
+            <div class="container row">
+                <div class="col-md-2"><img src="{{ entity.logo }}" height="100" width="100" class="rounded"></div>
+                <div class="col-md-10">
+                    <div class="container row">
+                        <div class="col-md-12"><a href="{{ path('detail', {'id': entity.id}) }}">{{ entity.title|lower|capitalize }}</a></div>
+                        <div class="col-md-12">{{ entity.about|lower|capitalize }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="container row">
+                <div class="col-md-12 text-right">
+                    <button type="button" class="btn btn-outline-info" onclick="window.location='{{ path('detail', {'id': entity.id}) }}'"><i class="far fa-eye"></i> Подробнее</button>
+                </div>
+            </div>
+
+    {% endfor %}
+    </div>
+{#</div>#}
+{% endblock %}
